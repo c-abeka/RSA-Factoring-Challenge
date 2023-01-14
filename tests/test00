@@ -1,0 +1,53 @@
+Import
+=====
+
+    >>> factorize = __import__('factors').factorize
+
+factorize(n)
+    ===========
+    Computes the factors of a number n
+    ---------------------------------
+
+    Usage:
+
+    >>> factorize(4)
+    4=2*2
+
+    >>> factorize(12)
+    12=6*2
+
+    Arguments:
+    @n: positive integer
+
+    >>> factorize(2j)
+    Traceback (most recent call last):
+    TypeError: n must be a positive integer
+
+    >>> factorize('a')
+    Traceback (most recent call last):
+    TypeError: n must be a positive integer
+
+    >>> factorize(a)
+    Traceback (most recent call last):
+    NameError: name 'a' is not defined
+
+
+## Test Case #1: factorize values
+    >>> vals = [4,12,34,128,1024,4958,1718944270642558716715,9,99,999,9999,9797973,49,239809320265259]
+    >>> for n in vals:
+    ...	    factorize(n)
+    4=2*2
+    12=6*2
+    34=17*2
+    128=64*2
+    1024=512*2
+    4958=2479*2
+    1718944270642558716715=343788854128511743343*5
+    9=3*3
+    99=33*3
+    999=333*3
+    9999=3333*3
+    9797973=3265991*3
+    49=7*7
+    239809320265259=15485783*15485773
+
