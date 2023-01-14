@@ -1,45 +1,41 @@
 #!/usr/bin/python3
-from sys import argv
-import math
-"""gets the first two factors of any number"""
+import sys
+''' This is a Factorization Challenge '''
 
 
-def is_prime(num):
-    """checks if a number is prime"""
-    i = 3
-    if num % 2 == 0:
-        return False
-    while i * i <= num:
-        if num % i == 0:
-            return False
-        i += 2
-    return True
+def factorize(n):
+    '''
+        factorize(n)
+        ===========
+        Computes the factors of a number n
+        ---------------------------------
+    '''
+    if type(n) is not int:
+        raise TypeError('n must be a positive integer')
 
-
-def factory(num):
-    """This factor function gets the factors of a number & prints them out"""
-    if num % 2 == 0:
-        i = 2
-        print("{}={}*{}".format(num, num//i, i))
-    else:
-        sq = int(math.sqrt(num))
-        if sq % 1 == 0:
-            print("{}={}*{}".format(num, sq, num // sq))
+    for d in range(2, 10):
+        if n % d == 0:
+            print("{}={}*{}".format(n, n // d, d))
             return
-        sq = int(sq) + 1
-        for i in range(3, sq, +2):
-            if num % i == 0:
-                if is_prime(i):
-                    print("{}={}*{}".format(num, num//i, i))
-                    return
 
+    sqrn = n ** 0.5 #get the square root of n
+    prime = 11;
+
+    while prime < sqrn:
+        if n % prime == 0:
+            print("{}={}*{}".format(n, n // prime, prime))
+            return
+        else:
+            prime += 2
+    
+    print("{}={}*{}".format(n, n , 1))
+    return
 
 def factors(filename):
-    """read_file"""
-    with open(filename, encoding="utf-8") as my_file:
+    with open(filename, encoding='utf-8') as my_file:
         for i in my_file:
-            result = factory(int(i))
-
+            result = factorize(int(i))  
 
 if __name__ == "__main__":
-    factors(argv[1])
+    factors(sys.argv[1])        
+        
