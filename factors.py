@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+import sys
 ''' This is a Factorization Challenge '''
 
 
@@ -29,8 +30,14 @@ def factorize(n):
     
     print("{}={}*{}".format(n, n , 1))
     return
-    
-            
+
+def factors(filename):
+    with open(filename, encoding='utf-8') as my_file:
+        for i in my_file:
+            result = factorize(int(i))  
+
+if __name__ == "__main__":
+    factors(sys.argv[1])        
         
 '''
     for div in range(2, 10):

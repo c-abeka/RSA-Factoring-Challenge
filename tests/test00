@@ -16,6 +16,9 @@ factorize(n)
     >>> factorize(12)
     12=6*2
 
+    >>> factorize(7566773)
+    7566773=28771*263
+
     Arguments:
     @n: positive integer
 
